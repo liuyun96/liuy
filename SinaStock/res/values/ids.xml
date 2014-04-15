@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <item type="id" name="ll" />
+    <item type="id" name="scrollView" />
+    <item type="id" name="fl" />
+    <item type="id" name="topicImageView" />
+    <item type="id" name="cover_overlay_home" />
+    <item type="id" name="webView" />
+    <item type="id" name="topicView" />
+    <item type="id" name="loadingbar" />
+    <item type="id" name="rl" />
+    <item type="id" name="actionbar" />
+    <item type="id" name="layout_item_detail_title" />
+    <item type="id" name="gobackBtn" />
+    <item type="id" name="backImg" />
+    <item type="id" name="share" />
+    <item type="id" name="like" />
+    <item type="id" name="likeBtn" />
+    <item type="id" name="likedBtn" />
+    <item type="id" name="commentNum" />
+    <item type="id" name="comment_count" />
+    <item type="id" name="closeBtn" />
+    
+    
+    <item type="id" name="titlebar">false</item>
+    <item type="id" name="comment_article">false</item>
+    <item type="id" name="zishu_textView">false</item>
+    <item type="id" name="comment_top_bar">false</item>
+    <item type="id" name="comment_title">false</item>
+    <item type="id" name="content">false</item>
+    <item type="id" name="item_title">false</item>
+    <item type="id" name="adfiexdview">false</item>
+    <item type="id" name="sight_title_bar">false</item>
+    <item type="id" name="sight_title_drawer">false</item>
+    <item type="id" name="draw_scrollview_text">false</item>
+    <item type="id" name="handle">false</item>
+    <item type="id" name="sight_title">false</item>
+    <item type="id" name="title_status">false</item>
+    <item type="id" name="draw_image_item">false</item>
+    <item type="id" name="draw_text">false</item>
+    <item type="id" name="read_custom_gallery">false</item>
+    <item type="id" name="refresh_data">false</item>
+    <item type="id" name="loadmore_data">false</item>
+    <item type="id" name="read_pics">false</item>
+    <item type="id" name="read_item_thum">false</item>
+    <item type="id" name="read_item_title">false</item>
+    <item type="id" name="read_item_share">false</item>
+    <item type="id" name="read_item_circle">false</item>
+    <item type="id" name="read_item_desc">false</item>
+    <item type="id" name="customgallery">false</item>
+    <item type="id" name="loading_layout">false</item>
+    <item type="id" name="sight_image">false</item>
+    <item type="id" name="top">false</item>
+    <item type="id" name="title_left">false</item>
+    <item type="id" name="main_title">false</item>
+    <item type="id" name="title_right">false</item>
+    <item type="id" name="home_content">false</item>
+    <item type="id" name="main_part">false</item>
+    <item type="id" name="top_Gallery">false</item>
+    <item type="id" name="right">false</item>
+    <item type="id" name="item_cur">false</item>
+    <item type="id" name="image_background">false</item>
+    <item type="id" name="image_icon">false</item>
+    <item type="id" name="image_text">false</item>
+    <item type="id" name="item_point">false</item>
+    <item type="id" name="toolbar">false</item>
+    <item type="id" name="reflush_btn">false</item>
+    <item type="id" name="setting_btn">false</item>
+    <item type="id" name="main_part_move">false</item>
+    <item type="id" name="main_part1_move">false</item>
+    <item type="id" name="main_part2_move">false</item>
+    <item type="id" name="main_part3_move">false</item>
+    <item type="id" name="main_part4_move">false</item>
+    <item type="id" name="main_part5_move">false</item>
+    <item type="id" name="main_part1">false</item>
+    <item type="id" name="main_part2">false</item>
+    <item type="id" name="main_part3">false</item>
+    <item type="id" name="main_part4">false</item>
+    <item type="id" name="set_main_ListView">false</item>
+    <item type="id" name="setting_txt_size">false</item>
+    <item type="id" name="set_list_item_logo">false</item>
+
+
+</resources>

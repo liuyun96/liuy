@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff" >
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/toolbar"
+        android:layout_below="@id/titlebar"
+        android:layout_marginBottom="-3.0dip"
+        android:layout_marginTop="-1.0dip"
+        android:background="#ffffffff" />
+
+    <RelativeLayout
+        android:id="@id/titlebar"
+        android:layout_width="fill_parent"
+        android:layout_height="45.0dip"
+        android:layout_alignParentTop="true"
+        android:background="#ff007e37" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:id="@id/reflush_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/setting_btn"
+            android:onClick="setting"
+            android:padding="4.0dip"
+            android:src="@drawable/reflush_btn"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@id/setting_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10.0dip"
+            android:background="@drawable/setting_btn"
+            android:onClick="setting"
+            android:src="@drawable/setting_btn_n" />
+    </RelativeLayout>
+
+    <include
+        android:id="@id/toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/part_bar" />
+
+</RelativeLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/ll"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="-2.5dip"
+        android:background="@color/white"
+        android:fadingEdge="none"
+        android:onClick="hideBar"  >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:id="@id/fl"
+                android:layout_width="fill_parent"
+                android:layout_height="200.0dip"
+                android:layout_marginTop="2.0dip" >
+
+                <ImageView
+                    android:id="@id/topicImageView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="200.0dip"
+                    android:layout_gravity="fill"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="200.0dip"
+                    android:layout_gravity="fill"
+                    android:alpha="50.0"
+                    android:background="@drawable/cover_overlay_home" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="bottom" >
+
+                    <TextView
+                        android:id="@id/topicView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:paddingBottom="5.0dip"
+                        android:paddingLeft="15.0dip"
+                        android:paddingRight="15.0dip"
+                        android:paddingTop="5.0dip"
+                        android:textColor="@color/white"
+                        android:textSize="15.0sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <WebView
+                android:id="@id/webView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@id/rl"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:background="@color/background"
+        android:gravity="center"
+        android:visibility="visible"
+        android:onClick="hideBar" >
+        <ProgressBar
+            android:id="@id/loadingbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@id/actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-5.0dip"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/title_bar_reg" >
+
+        <include
+            android:id="@id/layout_item_detail_title"
+            layout="@layout/item_actionbar"
+            android:animateLayoutChanges="true"
+            android:clickable="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

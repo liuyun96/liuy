@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/main_part" android:background="#ff2d2d2d" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="bottom" android:id="@id/main_part_move" android:paddingTop="5.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/main_part1_move" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/first_bar_move" android:scaleType="fitXY" android:layout_weight="1.0" />
+        <ImageView android:id="@id/main_part2_move" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/first_bar_move" android:scaleType="fitXY" android:layout_weight="1.0" />
+        <ImageView android:id="@id/main_part3_move" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/first_bar_move" android:scaleType="fitXY" android:layout_weight="1.0" />
+        <ImageView android:id="@id/main_part4_move" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/first_bar_move" android:scaleType="fitXY" android:layout_weight="1.0" />
+        <ImageView android:id="@id/main_part5_move" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/first_bar_move" android:scaleType="fitXY" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/main_part1" android:background="@drawable/yl_menu_item_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/yl_menu_item_self" android:scaleType="fitCenter" android:layout_weight="1.0" android:onClick="dothings" />
+        <View android:layout_width="0.33000004dip" android:layout_height="41.19998dip" />
+        <ImageView android:id="@id/main_part2" android:background="@drawable/yl_menu_item_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/yl_menu_item_cope" android:scaleType="fitCenter" android:layout_weight="1.0" android:onClick="dothings" />
+        <View android:layout_width="0.33000004dip" android:layout_height="41.19998dip" />
+        <ImageView android:id="@id/main_part3" android:background="@drawable/yl_menu_item_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/yl_menu_item_part" android:scaleType="fitCenter" android:layout_weight="1.0" android:onClick="dothings" />
+        <View android:layout_width="0.33000004dip" android:layout_height="41.19998dip" />
+        <ImageView android:id="@id/main_part4" android:background="@drawable/yl_menu_item_btn" android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/yl_menu_item_weibo" android:scaleType="fitCenter" android:layout_weight="1.0" android:onClick="dothings" />
+    </LinearLayout>
+</FrameLayout>
