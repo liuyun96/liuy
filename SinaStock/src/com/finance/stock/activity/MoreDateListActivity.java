@@ -2,10 +2,13 @@ package com.finance.stock.activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
@@ -35,6 +38,7 @@ public class MoreDateListActivity extends BaseActivity implements
 	private int MaxDateNum;
 	// 最后可见条目的索引
 	private int lastVisibleIndex;
+	private int keyBackClickCount = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -163,6 +167,31 @@ public class MoreDateListActivity extends BaseActivity implements
 			}, 2000);
 		}
 
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if(keyCode==KeyEvent.KEYCODE_BACK){
+			switch (keyBackClickCount++) {
+			case 0:
+				//showToast(this.getApplication().getApplicationContext(), "");
+				Toast.makeText(this,"再点一下退出",
+						Toast.LENGTH_SHORT).show();
+				Timer timer = new Timer();
+				timer.schedule(new TimerTask() {
+					@Override
+					public void run() {
+						keyBackClickCount=0;
+					}
+				}, 3000);
+				break;
+			case 1:
+				finish();
+			default:
+				break;
+			}
+		}
+		return true;
 	}
 
 }
