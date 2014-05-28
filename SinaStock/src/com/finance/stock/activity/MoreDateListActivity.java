@@ -3,7 +3,6 @@ package com.finance.stock.activity;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,16 +11,16 @@ import android.view.View.OnClickListener;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.finance.stock.R;
+import com.finance.stock.utils.StockUtils;
 
-public class MoreDateListActivity extends Activity implements OnScrollListener {
+public class MoreDateListActivity extends BaseActivity implements
+		OnScrollListener {
 
 	// ListView的Adapter
 	private SimpleAdapter mSimpleAdapter;
@@ -37,11 +36,22 @@ public class MoreDateListActivity extends Activity implements OnScrollListener {
 	// 最后可见条目的索引
 	private int lastVisibleIndex;
 
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		initData();
+		boolean check = StockUtils.isNetworkAvailable(getApplicationContext());
+		if (check) {
+			Toast.makeText(this, R.string.network_connection, 1000)
+					.show();
+		} else {
+			Toast.makeText(this, R.string.network_connection_exception,
+					1000).show();
+		}
+	}
+
+	public void initData() {
 		MaxDateNum = 22; // 设置最大数据条数
 		lv = (ListView) findViewById(R.id.lv);
 		// 实例化底部布局
@@ -86,12 +96,13 @@ public class MoreDateListActivity extends Activity implements OnScrollListener {
 				}, 2000);
 			}
 		});
-
 	}
 
 	public void loadItem(View view) {
 		Intent localIntent = new Intent();
-		localIntent.setClass(this, ItemActivity.class);
+		///localIntent.setClass(this, ItemActivity.class);
+		localIntent.setClass(this, ViewFlipperActivity.class);
+		localIntent.putExtra("id", view.getId());
 		startActivity(localIntent);
 	}
 

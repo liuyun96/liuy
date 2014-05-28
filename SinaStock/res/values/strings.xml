@@ -6,5 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="reminder">reminder</string>
     <string name="button">button</string>
+    <string name="network_connection_exception">网络连接异常</string>
+    <string name="network_connection">网络连接正常</string>
 
 </resources>

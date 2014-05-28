@@ -1,6 +1,5 @@
 package com.finance.stock.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -15,20 +14,20 @@ import com.finance.stock.R;
 import com.finance.stock.db.Stock;
 import com.finance.stock.utils.StockUtils;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
 	private TableLayout table;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getNotificationManager().cancel(1);
 		Intent intent = new Intent();
 		intent.setClass(this, MoreDateListActivity.class);
 		startActivity(intent);
 		finish();
-		// setContentView(R.layout.table);
-		// table = (TableLayout) findViewById(R.id.dictTable);
-		// initStocks();
+
+		// notificationManager.cancel(1);
 	}
 
 	private void initStocks() {

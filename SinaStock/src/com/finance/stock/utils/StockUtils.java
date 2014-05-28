@@ -1,5 +1,9 @@
 package com.finance.stock.utils;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import com.finance.stock.db.Stock;
 
 public class StockUtils {
@@ -26,5 +30,20 @@ public class StockUtils {
 			}
 		}
 		return null;
+	}
+
+	public static boolean isNetworkAvailable(Context paramContext) {
+		ConnectivityManager localConnectivityManager = (ConnectivityManager) paramContext
+				.getSystemService("connectivity");
+		if (localConnectivityManager != null)
+			return false;
+		while (true) {
+			NetworkInfo[] arrayOfNetworkInfo = localConnectivityManager
+					.getAllNetworkInfo();
+			if (arrayOfNetworkInfo != null)
+				for (int i = 0; i < arrayOfNetworkInfo.length; i++)
+					if (arrayOfNetworkInfo[i].getState() == NetworkInfo.State.CONNECTED)
+						return true;
+		}
 	}
 }
