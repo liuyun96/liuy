@@ -1,0 +1,214 @@
+1、      Android的四大组件是哪些，它们的作用？...................................................... 3
+2、      请介绍下Android中常用的五种布局。............................................................. 3
+3、      android中的动画有哪几类，它们的特点和区别是什么................................... 3
+4、      android 中有哪几种解析xml的类？官方推荐哪种？以及它们的原理和区别。 3
+5、      ListView的优化方案.......................................................................................... 4
+6、      请介绍下Android的数据存储方式。................................................................. 4
+7、      activity的启动模式有哪些？是什么含义？.................................................... 6
+8、       跟activity和Task 有关的 Intent启动方式有哪些？其含义？................... 7
+9、      请描述下Activity的生命周期。...................................................................... 9
+10、        activity在屏幕旋转时的生命周期.............................................................. 10
+11、        如何启用Service，如何停用Service。..................................................... 10
+12、        注册广播有几种方式，这些方式有何优缺点？请谈谈Android引入广播机制的用意。        11
+13、        请解释下在单线程模型中Message、Handler、Message Queue、Looper之间的关系。            11
+14、        简要解释一下activity、 intent 、intent filter、service、Broadcase、BroadcaseReceiver   13
+15、        说说mvc模式的原理，它在android中的运用,android的官方建议应用程序的开发采用mvc模式。何谓mvc？    13
+16、        什么是ANR 如何避免它？.............................................................................. 13
+17、        什么情况会导致Force Close ？如何避免？能否捕获导致其的异常？..... 14
+18、        描述一下android的系统架构....................................................................... 14
+19、        请介绍下ContentProvider是如何实现数据共享的。................................ 14
+20、        Android本身的api并未声明会抛出异常，则其在运行时有无可能抛出runtime异常，你遇到过吗？诺有的话会导致什么问题？如何解决？.............................................................................. 15
+21、        IntentService有何优点?............................................................................ 15
+22、    如果后台的Activity由于某原因被系统回收了，如何在被系统回收之前保存当前状态？             15
+23、        如何将一个Activity设置成窗口的样式。.................................................. 15
+24、        如何退出Activity？如何安全退出已调用多个Activity的Application？  15
+25、        AIDL的全称是什么？如何工作？能处理哪些类型的数据？......................... 16
+26、        请解释下Android程序运行时权限与文件系统权限的区别。...................... 17
+27、        系统上安装了多种浏览器，能否指定某浏览器访问指定页面？请说明原由。 17
+28、        android系统的优势和不足........................................................................... 17
+29、        Android dvm的进程和Linux的进程, 应用程序的进程是否为同一个概念 18
+30、        sim卡的EF文件是什么？有何作用............................................................... 18
+31、        嵌入式操作系统内存管理有哪几种， 各有何特性....................................... 18
+32、        什么是嵌入式实时操作系统, Android 操作系统属于实时操作系统吗?.... 18
+33、        一条最长的短信息约占多少byte?................................................................ 18
+34、        有一个一维整型数组int[]data保存的是一张宽为width，高为height的图片像素值信息。
+       请写一个算法，将该图片所有的白色不透明(0xffffffff)像素点的透明度调整为50%。...... . 18
+35、        如何将SQLite数据库(dictionary.db文件)与apk文件一起发布............ 19
+36、        如何将打开res aw目录中的数据库文件?.................................................... 19
+37、        DDMS和TraceView的区别?........................................................................... 19
+38、        java中如何引用本地语言............................................................................. 19
+39、        谈谈Android的IPC（进程间通信）机制..................................................... 19
+40、        NDK是什么...................................................................................................... 19
+
+1.Android应用程序四大组件
+
+activity 可视化的用户界面, 但每一个activity都是相对独立的
+
+service 没有用户界面，但它会在后台一直运行
+
+
+broadcase receiver 不执行任何任务，仅仅是接受并响应广播通知的一类组件
+
+Content provider 应用程序可以通过content provider访问其它应用程序的一些私有数据，这是Android提供的一种标准的共享数据的机制
+
+
+2.Android中常用的五种布局
+
+FrameLayout  这个布局可以看成是墙脚堆东西
+LinearLayout 里面又可分为垂直布局（android:orientation="vertical"）和水平布局（android:orientation="horizontal" 
+AbsoluteLayout 绝对布局犹如div指定了absolute属性，用X,Y坐标来指定元素的位置android:layout_x="20px" 
+RelativeLayout 
+	相对布局可以理解为某一个元素为参照物，来定位的布局方式。主要属性有：
+	相对于某一个元素
+	android:layout_below="@id/aaa" 该元素在 id为aaa的下面
+	android:layout_toLeftOf="@id/bbb" 改元素的左边是bbb
+	相对于父元素的地方
+	android:layout_alignParentLeft="true"  在父元素左对齐
+	android:layout_alignParentRight="true" 在父元素右对齐
+TableLayout
+ 	 表格布局类似Html里面的Table。每一个TableLayout里面有表格行TableRow，TableRow里面可以具体定义每一个元素，设定他的对齐方式 android:gravity="" 。
+ 	 
+3.Android的animation由四种类型组成
+XML中
+alpha
+渐变透明度动画效果
+scale
+渐变尺寸伸缩动画效果
+translate
+画面转换位置移动动画效果
+rotate
+画面转移旋转动画效果
+
+4.android解析XML总结（SAX、Pull、Dom三种方式）
+Dom我们可以随时访问到某个节点的相邻节点，并且对xml文档的插入也非常的方便,不好的地方就是，其会将整个xml文档加载到内存中
+SAX解析XML文件采用的是事件驱动，也就是说，它并不需要解析完整个文档，在按内容顺序解析文档的过程中
+Pull解析器和SAX解析器虽有区别但也有相似性。他们的区别为：SAX解析器的工作方式是自动将事件推入注册的事件处理器进行处理，因此你不能控制事件的处理主动结束；
+而Pull解析器的工作方式为允许你的应用程序代码主动从解析器中获取事件，正因为是主动获取事件，因此可以在满足了需要的条件后不再获取事件，结束解析。这是他们主要的区别。
+http://www.cnblogs.com/xiaoluo501395377/p/3444744.html
+
+5.ListView优化
+Adapter的作用就是ListView界面与数据之间的桥梁
+这里推荐如果只是一般的应用（一般指子控件不多），无需都是用静态内部类来优化，使用方案1即可；反之，对性能要求较高时可采用。此外需要提醒的是这里也是用空间换时间的做法，
+View本身因为setTag而会占用更多的内存，还会增加代码量；而findViewById会临时消耗更多的内存，所以不可盲目使用，依实际情况而定。
+http://blog.csdn.net/ouyang_peng/article/details/8740559
+
+6.Android中的5种数据存储方式
+	1 使用SharedPreferences存储数据 它提供了Android平台常规的Long长 整形、Int整形、String字符串型的保存
+	2 文件存储数据
+	Activity提供了openFileOutput()方法可以用于把数据输出到文件中
+	把文件存入SDCard
+	3 SQLite数据库存储数据
+	数据库存储在 data/< 项目文件夹 >/databases/ 下。 Activites 可以通过 Content Provider 或者 Service 访问
+	4 使用ContentProvider存储数据
+	5 网络存储数据
+	我们可以调用WebService返回的数据或是解析HTTP协议实现网络数据交互。
+	http://www.cnblogs.com/hanyonglu/archive/2012/03/01/2374894.html
+7.Android总Activity的启动模式分为四种
+ <activity android:name=".MainActivity" android:launchMode="standard" />
+ standard,singleTop,singleInstance
+ “拿来主义”——standard模式
+ “拒绝堆叠”——singleTop模式  如果堆栈的顶部已经存在了该Activity，那么，它便不会重新创建
+ “独立门户”——singleTask模式
+ “孤独寂寞”——singleInstance模式
+http://blog.csdn.net/oSilenceisgold1/article/details/19479011
+
+8.Intent的几种有关Activity启动的方式与Activity和Task的启动模式 
+通常情况下，一个应用有一个Task，这个Task就是为了完成某个工作的一系列Activity的集合。而这些Activity又被组织成了堆栈的形式。
+ 当一个Activity启动时，就会把它压入该Task的堆栈，而当用户在该Activity中按返回键，或者代码中finish掉时，就会将它从该 Task的堆栈中弹出。
+ 
+9.Activity的生命周期
+         覆写这些回调函数时，首先要记得一定要调用基类的回调函数，即最开始一行永远是super.onXXX();
+　　onPause()和onResume()中的动作应该互逆，比如说onPause()中释放了相机，那么onResume()中就要重新初始化相机。
+　　Stopped状态下，UI对用户完全不可见，此时用户焦点在另一个activity或者另一个程序上。
+　　onStop()中需要释放资源，因为有时候系统会kill掉Stopped状态的进程，如果有资源没有被释放，会造成内存泄露。
+　　onStop()中还应该包括一些关闭操作，比如向数据库写信息。
+　　当从Stopped状态回到前景时，首先需要调用onRestart()，这个函数做一些恢复工作，恢复停止但是并没有被销毁的activity；然后系统会接着调用onStart()，因为每次activity变为可见时都要调用onStart()。
+　　可以把onStart()和onStop()看成一对，因为在一开始启动时和重新启动时都需要做一些初始化工作。
+　　onDestroy()一般都是在onPause()和onStop()之后调用，但有一个例外的情况：如果在onCreate()中调用finish()方法，系统将会立即调用onDestroy()而不用经过生命周期中的其他阶段。
+   http://blog.csdn.net/liuhe688/article/details/6733407
+ 10.Android屏幕旋转时Activity的生命周期
+	android:screenOrientation=”landscape” 属性。portrait 
+ 	1.当前的Activity不销毁：
+ 	android:configChanges="orientation|keyboardHidden"
+ 	无论你怎么旋转都不会销毁当前的Activity，只会执行onConfigurationChanged（）方法，因此只要在该方法中处理响应的数据即可
+ 	2.销毁当前的Activity
+ 	那么就要重写Activity的两个方法onSaveInstanceState（）和 onRestoreInstanceState（），显然从方法名字可以看出一个是保存
+ 11.如何启用Service，如何停用Service
+	 一．步骤
+	第一步：继承Service类
+	public class SMSService extends Service { }
+	第二步：在AndroidManifest.xml文件中的<application>节点里对服务进行配置:
+	<service android:name=".DemoService" />
+	二．Context.startService()和Context.bindService
+	1. 采用startService()启动服务
+     Intent intent = new Intent(DemoActivity.this, DemoService.class);
+     startService(intent);
+	2.Context.bindService()启动
+	    Intent intent = new Intent(DemoActivity.this, DemoService.class);
+	    bindService(intent, conn, Context.BIND_AUTO_CREATE);
+	   //unbindService(conn);//解除绑定
+12.注册广播有几种方式，这些方式有何优缺点？请谈谈Android引入广播机制的用意
+	http://blog.csdn.net/lganggang131/article/details/6580805
+	BroadcastReceiver用于监听被广播的事件
+	必须被注册，有两种方法：
+	1、在应用程序的代码中注册
+	注册BroadcastReceiver：
+	registerReceiver（receiver，filter）；
+	取消注册BroadcastReceiver：
+	unregisterReceiver（receiver）；
+	当BroadcastReceiver更新UI，通常会使用这样的方法注册。启动Activity时候注册BroadcastReceiver，Activity不可见时候，取消注册。
+	2、在androidmanifest.xml当中注册
+	<receiver>
+	    <intent-filter>
+	     <action android:name = "android.intent.action.PICK"/>
+	    </intent-filter>
+	</receiver>
+	使用这样的方法注册弊端：它会始终处于活动状态，毕竟是手机开发，cpu和电源资源比较少，一直处于活动耗费大，不利。
+13.在单线程模型中Message、Handler、Message Queue、Looper之间的关系。
+	http://blog.csdn.net/weijing331/article/details/8650036
+	1. Message
+	    Message消息，理解为线程间交流的信息，处理数据后台线程需要更新UI，则发送Message内含一些数据给UI线程。
+	2. Handler
+	    Handler处理者，是Message的主要处理者，负责Message的发送，Message内容的执行处理。后台线程就是通过传进来的 Handler对象引用来sendMessage(Message)。而使用Handler，需要implement 该类的 handleMessage(Message)
+	方法，它是处理这些Message的操作内容，例如Update UI。通常需要子类化Handler来实现handleMessage方法。
+	3. Message Queue
+	    Message Queue消息队列，用来存放通过Handler发布的消息，按照先进先出执行。
+	    每个message queue都会有一个对应的Handler。Handler会向message queue通过两种方法发送消息：sendMessage或post。这两种消息都会插在message queue队尾并按先进先出执行。但通过这两种方法发送的消息执行的方式略有不同：通过sendMessage发送的是一个message对象,会被 Handler的handleMessage()函数处理；而通过post方法发送的是一个runnable对象，则会自己执行。
+	4. Looper
+	    Looper是每条线程里的Message Queue的管家。Android没有Global的Message Queue，而Android会自动替主线程(UI线程)建立Message Queue，但在子线程里并没有建立Message Queue。所以调用Looper.getMainLooper()得到的主线程的Looper不为NULL，但调用Looper.myLooper() 得到当前线程的Looper就有可能为NULL。
+	    对于子线程使用Looper，API Doc提供了正确的使用方法：
+14. 简要解释一下activity、 intent 、intent filter、service、Broadcast、BroadcaseReceiver
+http://blog.csdn.net/Zengyangtech/article/details/6025676
+理解Intent的关键之一是理解清楚Intent的两种基本用法：一种是显式的Intent，即在构造Intent对象时就指定接收者；另一种是隐式的Intent，
+即Intent的发送者在构造Intent对象时，并不知道也不关心接收者是谁，有利于降低发送者和接收者之间的耦合。
+对于显式Intent，Android不需要去做解析，因为目标组件已经很明确，Android需要解析的是那些隐式Intent，通过解析，
+将 Intent映射给可以处理此Intent的Activity、IntentReceiver或Service。  
+
+15.android mvc
+M：模型层（Model），获取数据、对数据进行操作处理部分，对数据库的操作、对网络等的操作都应该在Model里面处理，当然对业务计算等操作也是必须放在的该层的。
+V：视图层（View），展示数据部分，一般都是使用XML搭界面，所以数据也就自然而然在这里进行展示，当然android应用界面的搭建还可以用HTML5等进行搭建，但这些不是这篇文中要讨论的。
+C：控制层（Controller），android中的控制层是落在activity上，activity从Model层获取到数据之后，将其放到View层上面进行展示，这也让我们清楚，不要再activity当中写处理业务逻辑方面的代码，尤其是耗时的操作更加不能在这里写。
+16.避免 ANR
+http://baike.baidu.com/view/4298571.htm
+因此，运行在主线程里的任何方法都尽可能少做事情。特别是，Activity应该在它的关键生命周期方法（如onCreate()和onResume()）里尽可能少的去做创建操作。
+潜在的耗时操作，例如网络或数据库操作，或者高耗时的计算如改变位图尺寸，应该在子线程里（或者以数据库操作为例，通过异步请求的方式）来完成。然而，
+不是说你的主线程阻塞在那里等待子线程的完成——也不是调用Thread.wait()或是Thread.sleep()。替代的方法是，主线程应该为子线程提供一个Handler，
+以便完成时能够提交给主线程。以这种方式设计你的应用程序，将能保证你的主线程保持对输入的响应性并能避免由于5秒输入事
+件的超时引发的ANR对话框。这种做法应该在其它显示UI的线程里效仿，因为它们都受相同的超时影响。
+17.关于Android Force Close 出现的原因 以及解决方法
+可以实现Thread.UncaughtExceptionHandler接口的uncaughtException方法
+http://www.cnblogs.com/tianjian/archive/2011/10/27/2226633.html
+18.android的系统架构.
+Android系统架构为四层结构，从上层到下层分别是应用程序层、应用程序框架层、系统运行库层以及Linux内核层，
+http://blog.csdn.net/cruise_h/article/details/12610133
+19.使用ContentProvider（内容提供者）共享数据
+http://www.cnblogs.com/linjiqin/archive/2011/05/28/2061396.html
+20.IntentService有何优点？
+对于异步的startService请求，IntentService会处理完成一个之后再处理第二个，每一个请求都会在一个单独的worker thread中处理，不会阻塞应用程序的主线程
+http://hi.baidu.com/zvnryxsyzrjlvze/item/30ee008501f495d198255f70
+
+21.如果后台的Activity由于某原因被系统回收了，如何在被系统回收之前保存当前状态？
+http://www.mianwww.com/html/2012/07/16796.html
+
+22.如何安全退出已调用多个Activity的Application？
+http://blog.csdn.net/debug2/article/details/6193644
