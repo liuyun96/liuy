@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.finance.stock.R;
 
@@ -26,13 +28,31 @@ public class LoadingActivity extends BaseActivity {
 			long id = savedInstanceState.getLong("id");
 			Log.e("id", "" + id);
 			onResume();
-			//onStart();
+			// onStart();
 			return;
 		}
 		super.onCreate(savedInstanceState);
+		// setContentView(R.layout.web);
 		// initView();
-		showMainUI();
-		this.mHandler.postDelayed(this.showMainUI, 100L);
+		// showMainUI();
+		// this.mHandler.postDelayed(this.showMainUI, 100L);
+		initWeb();
+	}
+
+	private void initWeb() {
+		// setContentView(R.layout.web);
+		WebView webView = new WebView(this);
+		webView.getSettings().setJavaScriptEnabled(true);
+		webView.loadUrl("http://m.stanford.edu");
+		webView.setWebViewClient(new WebViewClient() {
+			@Override
+			public boolean shouldOverrideUrlLoading(WebView view, String url) {
+				// TODO Auto-generated method stub
+				view.loadUrl(url);
+				return true;
+			}
+		});
+		setContentView(webView);
 	}
 
 	private void initView() {

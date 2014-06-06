@@ -108,7 +108,7 @@ public final class R {
         public static final int yl_menu_item_weibo=0x7f020026;
     }
     public static final class id {
-        public static final int action_settings=0x7f070055;
+        public static final int action_settings=0x7f070056;
         public static final int actionbar=0x7f070009;
         public static final int adfiexdview=0x7f07001b;
         public static final int backImg=0x7f07000c;
@@ -193,6 +193,7 @@ public final class R {
         public static final int tv_title=0x7f07004f;
         public static final int viewflipper=0x7f070054;
         public static final int webView=0x7f070005;
+        public static final int webview=0x7f070055;
         public static final int zishu_textView=0x7f070016;
     }
     public static final class layout {
@@ -206,6 +207,7 @@ public final class R {
         public static final int part_bar=0x7f030007;
         public static final int table=0x7f030008;
         public static final int viewpager_layout=0x7f030009;
+        public static final int web=0x7f03000a;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
